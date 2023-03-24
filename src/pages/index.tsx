@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+import Link from "next/link"
 import { Titillium_Web } from "next/font/google"
 
 const titillium = Titillium_Web({
@@ -20,19 +21,19 @@ export default function Home() {
       <main className={`${titillium.variable} font-sans`}>
         <div className="w-screen h-screen flex justify-center">
           <div className="w-96 max-w-full flex items-center justify-center flex-col space-y-8 py-8 p-4">
-            <a
+            <Link
               href="/loginpage"
               className="w-full bg-violet-600 py-6 px-14 rounded-full flex justify-center text-white font-semibold text-xl hover:bg-violet-700"
             >
               Login page
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/time"
               className="w-full bg-violet-600 py-6 px-14 rounded-full flex justify-center text-white font-semibold text-xl hover:bg-violet-700"
             >
               Time
-            </a>
+            </Link>
           </div>
         </div>
       </main>

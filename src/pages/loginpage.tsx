@@ -8,6 +8,7 @@ import Background from "../../public/img/img.jpg"
 import Logo from "../../public/img/logo.svg"
 import Eye from "../../public/img/eye.svg"
 import EyeOff from "../../public/img/eye-off.svg"
+import { Back } from "@/components/Back"
 
 const titillium = Titillium_Web({
   weight: ["400", "600", "700"],
@@ -31,6 +32,7 @@ export default function LoginPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${titillium.variable} font-sans`}>
+        <Back />
         <div className="h-screen flex">
           <div className="w-1/2 py-16 px-44">
             <Image src={Logo} alt="Logo" className="w-64 h-20" />

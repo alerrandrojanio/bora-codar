@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-titillium)", ...fontFamily.sans],
       },
+      backgroundImage: {
+        "bg-weather": "url('public/images/background.svg')",
+      },
     },
   },
   plugins: [],

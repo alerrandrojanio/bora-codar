@@ -19,7 +19,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${titillium.variable} font-sans`}>
-        <div className="w-screen h-screen flex justify-center">
+        <div className="w-screen h-screen flex justify-center items-center flex-col space-y-6">
+          <div className="">
+            <h1 className="text-3xl font-bold">Desafios</h1>
+          </div>
           <div className="w-96 max-w-full flex items-center justify-center flex-col space-y-8 py-8 p-4">
             <Link
               href="/loginpage"
@@ -29,10 +32,10 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/time"
+              href="/climate"
               className="w-full bg-violet-600 py-6 px-14 rounded-full flex justify-center text-white font-semibold text-xl hover:bg-violet-700"
             >
-              Time
+              Climate
             </Link>
           </div>
         </div>

@@ -34,12 +34,16 @@ export default function LoginPage() {
       <main className={`${titillium.variable} font-sans`}>
         <Back />
         <div className="h-screen flex">
-          <div className="w-1/2 py-16 px-44">
-            <Image src={Logo} alt="Logo" className="w-64 h-20" />
+          <div className="w-1/2 lg:px-40 py-16 md:px-10 max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8">
+            <Image
+              src={Logo}
+              alt="Logo"
+              className="w-64 h-20 max-sm:mt-10 md:mt-10"
+            />
 
-            <div className="mt-24">
-              <div className="max-w-xl w-3/4">
-                <h1 className="text-5xl font-bold text-gray-800">
+            <div className="mt-24 max-sm:mt-8 md:mt-10">
+              <div className="max-w-xl w-3/4 max-sm:w-full">
+                <h1 className="text-5xl font-bold text-gray-800 ">
                   Acesse a plataforma
                 </h1>
                 <p className="text-gray-600 text-lg mt-4">
@@ -48,7 +52,7 @@ export default function LoginPage() {
                 </p>
               </div>
 
-              <form className="mt-16">
+              <form className="mt-16 max-sm:mt-8">
                 <div className="flex flex-col space-y-2">
                   <label
                     htmlFor="email"
@@ -126,7 +130,7 @@ export default function LoginPage() {
           <Image
             src={Background}
             alt="Background"
-            className="w-1/2"
+            className="w-1/2 max-sm:hidden min-sm:hidden"
             objectFit="cover"
           />
         </div>

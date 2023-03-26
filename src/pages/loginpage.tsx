@@ -31,28 +31,28 @@ export default function LoginPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${titillium.variable} font-sans`}>
+      <main className={`${titillium.variable} font-titillium`}>
         <Back />
         <div className="h-screen flex">
-          <div className="w-1/2 lg:px-40 py-16 md:px-10 max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8">
+          <div className="w-1/2 py-16 xl:px-48 lg:px-10  max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8 ">
             <Image
               src={Logo}
               alt="Logo"
-              className="w-64 h-20 max-sm:mt-10 md:mt-10"
+              className="w-64 h-20 max-sm:mt-10 md:mt-10 sm:mt-14"
             />
 
-            <div className="mt-24 max-sm:mt-8 md:mt-10">
-              <div className="max-w-xl w-3/4 max-sm:w-full">
-                <h1 className="text-5xl font-bold text-gray-800 ">
+            <div className="mt-24 max-sm:mt-8 md:mt-10 sm:mt-10">
+              <div className="max-w-xl w-3/4 max-sm:w-full ">
+                <h1 className="text-5xl font-bold text-gray-800 sm:text-4xl">
                   Acesse a plataforma
                 </h1>
-                <p className="text-gray-600 text-lg mt-4">
+                <p className="text-gray-600 text-lg mt-4 sm:text-md">
                   Faça login ou registre-se para começar a construir seus
                   projetos ainda hoje.
                 </p>
               </div>
 
-              <form className="mt-16 max-sm:mt-8">
+              <form className="mt-16 max-sm:mt-8 sm:mt-8">
                 <div className="flex flex-col space-y-2">
                   <label
                     htmlFor="email"
@@ -63,7 +63,7 @@ export default function LoginPage() {
                   <input
                     id="email"
                     type="email"
-                    className="w-full py-6 px-5 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff]"
+                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff]"
                     required
                   />
                 </div>
@@ -87,7 +87,7 @@ export default function LoginPage() {
                   <input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    className="w-full py-6 px-5 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff]"
+                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff]"
                     required
                   />
                   {showPassword ? (

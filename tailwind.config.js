@@ -13,10 +13,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-titillium)", ...fontFamily.sans],
+        titillium: ["var(--font-titillium)", ...fontFamily.sans],
+        lato: ["var(--font-lato)", ...fontFamily.sans],
       },
       backgroundImage: {
         "bg-weather": "url('public/images/background.svg')",
+        "bg-temp-now": "url('public/images/climate/bg-temp-now.jpg')",
       },
     },
   },

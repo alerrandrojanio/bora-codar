@@ -2,16 +2,20 @@ import Head from "next/head"
 import Image from "next/image"
 import { useState } from "react"
 
-import { Titillium_Web } from "next/font/google"
+import { Lato } from "next/font/google"
 import { Back } from "@/components/Back"
 
 import Background from "../../public/img/climate/background.svg"
 import Weather from "../../public/img/climate/weather.svg"
+import Wind from "../../public/img/climate/vento.svg"
+import Humidity from "../../public/img/climate/umidade.svg"
+import Rain from "../../public/img/climate/chuva.svg"
+import Locate from "../../public/img/climate/local.svg"
 
-const titillium = Titillium_Web({
-  weight: ["400", "600", "700"],
+const lato = Lato({
+  weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-titillium",
+  variable: "--font-lato",
 })
 
 export default function Climate() {
@@ -24,18 +28,70 @@ export default function Climate() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main
-        className={`${titillium.variable} font-sans bg-[#8E87FA] bg-[url('../../public/img/climate/background.svg')] bg-cover`}
+        className={`${lato.variable} font-lato bg-[#8E87FA] bg-[url('../../public/img/climate/background.svg')] bg-cover`}
       >
         <Back />
 
         <div className="h-screen flex items-center justify-center">
           <div>
             <div className="flex flex-row gap-8 flex-wrap">
-              <div className="bg-[#6D67D0] w-[480px] h-[480px] rounded-xl relative px-4 py-3">
-                <div className="flex justify-evenly">
-                  <div className="bg-[#6660C8]/60 h-[60px] w-[146px] px-4 py-3 rounded-lg"></div>
-                  <div className="bg-[#6660C8]/60 h-[60px] w-[146px] px-4 py-3 rounded-lg"></div>
-                  <div className="bg-[#6660C8]/60 h-[60px] w-[146px] px-4 py-3 rounded-lg"></div>
+              <div className="bg-[#6D67D0] w-[480px] h-[480px] rounded-xl relative px-4 py-6 flex flex-col justify-between bg-[url('../../public/img/climate/bg-temp-now.jpeg')] bg-cover">
+                <div className="flex items-center justify-end space-x-2">
+                  <Image src={Locate} alt="Locate" />
+                  <span className="font-bold text-[#C2BFF4]">
+                    Rio do Sul, SC
+                  </span>
+                </div>
+
+                <div className="flex flex-col justify-center items-center space-y-2">
+                  <div>
+                    <p className="font-bold text-7xl text-white flex items-start space-x-4">
+                      18{" "}
+                      <span className="font-light text-lg text-[#DAD8F7]">
+                        °C
+                      </span>
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-white text-xl">22°</span>
+                    <span className="text-[#C2BFF4] text-xl">16°</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-center space-x-4 ">
+                  <div className="bg-[#6660C8]/60 h-[60px] w-[140px] px-4 py-3 rounded-lg flex items-center justify-evenly">
+                    <Image src={Wind} alt="Wind" />
+
+                    <div className="flex flex-col justify-center items-start text-[#E7E6FB]">
+                      <p className="text-sm">Vento</p>
+                      <p className="text-sm">
+                        <span className="text-[#E7E6FB] text-base">17</span>{" "}
+                        Km/h
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#6660C8]/60 h-[60px] w-[146px] px-4 py-3 rounded-lg flex items-center justify-evenly">
+                    <Image src={Humidity} alt="Wind" />
+
+                    <div className="flex flex-col justify-center items-start text-[#E7E6FB]">
+                      <p className="text-sm">Umidade</p>
+                      <p className="text-sm">
+                        <span className="text-[#E7E6FB] text-base">31</span> %
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#6660C8]/60 h-[60px] w-[146px] px-4 py-3 rounded-lg flex items-center justify-evenly">
+                    <Image src={Rain} alt="Wind" />
+
+                    <div className="flex flex-col justify-center items-start text-[#E7E6FB]">
+                      <p className="text-sm">Chuva</p>
+                      <p className="text-sm">
+                        <span className="text-[#E7E6FB] text-base">10</span> %
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <Image

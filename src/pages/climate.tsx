@@ -11,12 +11,27 @@ import Wind from "../../public/img/climate/vento.svg"
 import Humidity from "../../public/img/climate/umidade.svg"
 import Rain from "../../public/img/climate/chuva.svg"
 import Locate from "../../public/img/climate/local.svg"
+import Leaf from "../../public/img/climate/leaf.svg"
 
 const lato = Lato({
-  weight: ["400", "700"],
+  weight: ["400", "700", "900"],
   subsets: ["latin"],
   variable: "--font-lato",
 })
+
+interface AirQuality {
+  num: number
+  legend: string
+}
+
+const airQuality: Array<AirQuality> = [
+  { num: 12.9, legend: "PM2.5" },
+  { num: 12.9, legend: "PM10" },
+  { num: 2.1, legend: "SO₂" },
+  { num: 1.4, legend: "NO₂" },
+  { num: 21.2, legend: "O₃" },
+  { num: 0.7, legend: "CO" },
+]
 
 export default function Climate() {
   return (
@@ -32,10 +47,10 @@ export default function Climate() {
       >
         <Back />
 
-        <div className="h-screen flex items-center justify-center">
-          <div>
-            <div className="flex flex-row gap-8 flex-wrap">
-              <div className="bg-[#6D67D0] w-[480px] h-[480px] rounded-xl relative px-4 py-6 flex flex-col justify-between bg-[url('../../public/img/climate/bg-temp-now.jpeg')] bg-cover">
+        <div className="h-screen">
+          <div className="h-full w-full flex items-center justify-center">
+            <div className="flex flex-row justify-center gap-8 flex-wrap px-4 py-4 ">
+              <div className="bg-[#6D67D0] w-[30rem] h-[30rem] rounded-xl relative px-4 py-6 flex flex-col justify-between bg-[url('../../public/img/climate/bg-temp-now.jpeg')] bg-cover">
                 <div className="flex items-center justify-end space-x-2">
                   <Image src={Locate} alt="Locate" />
                   <span className="font-bold text-[#C2BFF4]">
@@ -100,13 +115,49 @@ export default function Climate() {
                 className="absolute z-10 left-80 top-44"
               />
 
-              <div className="flex flex-col justify-between">
-                <div className="flex justify-between">
-                  <div className="bg-[#6D67D0] w-[277px] h-[244px] rounded-xl"></div>
-                  <div className="bg-[#6D67D0] w-[277px] h-[244px] rounded-xl"></div>
+              <div className="flex flex-col justify-between flex-wrap ">
+                <div className="flex flex-row flex-wrap items-center justify-between ">
+                  <div className="bg-[#6D67D0] w-[17.31rem] h-[15.25rem] rounded-xl py-4 px-4 flex flex-col justify-between">
+                    <div className="flex items-center justify-center space-x-2">
+                      <Image src={Leaf} alt="Leaf" className="" />
+                      <span className="text-[#DAD8F7] font-bold">
+                        Qualidade do ar
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center space-y-1">
+                      <span className="font-bold text-[#87EBCD] text-xl">
+                        Boa
+                      </span>
+                      <span className="font-bold text-[#E7E6FB] text-5xl">
+                        21
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-center space-x-3">
+                      {airQuality.map((air, index) => {
+                        return (
+                          <div
+                            key={index}
+                            className="flex flex-col items-center justify-center"
+                          >
+                            <span className="text-[#87EBCD] text-sm">
+                              {air.num}
+                            </span>
+                            <span className="text-[#E7E6FB] text-sm">
+                              {air.legend}
+                            </span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                  <div className="bg-[#6D67D0] w-[17.31rem] h-[15.25rem] rounded-xl"></div>
                 </div>
 
-                <div className="bg-[#6D67D0] w-[578px] h-[212px] rounded-xl"></div>
+                <div className="">
+                  <div className="bg-[#6D67D0] w-[36.12rem] h-[13.25rem] rounded-xl"></div>
+                </div>
               </div>
             </div>
           </div>

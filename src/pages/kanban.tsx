@@ -8,6 +8,8 @@ import {
   UsersIcon,
   DocumentTextIcon,
   CogIcon,
+  AdjustmentsHorizontalIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid"
 
 import { Inter } from "next/font/google"
@@ -15,6 +17,7 @@ import { Back } from "@/components/Back"
 
 import Logo from "../../public/img/kanban/logo.svg"
 import Pencil from "../../public/img/kanban/pencil.svg"
+import { CardKanban } from "@/components/CardKanban"
 
 const inter = Inter({
   weight: ["400", "500", "700"],
@@ -93,7 +96,7 @@ export default function Kanban() {
               >
                 <h1 className="flex items-center gap-5 text-4xl font-bold text-[#403937]">
                   Meu Kanban
-                  <Image src={Pencil} alt="Pencil" />
+                  <Image src={Pencil} alt="Pencil" className="cursor-pointer" />
                 </h1>
                 <Image
                   src={"https://github.com/alerrandrojanio.png"}
@@ -102,6 +105,65 @@ export default function Kanban() {
                   height={80}
                   alt="Avatar"
                 />
+              </section>
+
+              <section id="filter" className="mt-12 px-10 flex gap-5">
+                <button className="flex items-center gap-3 py-4 px-12 bg-[#7c3aed] text-white rounded-lg focus-within:outline-none hover:bg-[#9f67ff] focus:ring-2 focus:ring-[#9f67ff]">
+                  <AdjustmentsHorizontalIcon className="h-6 w-6" />
+                  <span className="text-lg">Filtrar</span>
+                </button>
+
+                <div
+                  id="input-wrapper"
+                  className="flex flex-1 items-center gap-4 px-10 bg-white border-[0.07rem] border-[#e3e3e3] rounded-lg shadow-sm group focus-within:outline-none focus-within:ring-2 focus-within:ring-[#9f67ff]"
+                  tabIndex={0}
+                >
+                  <MagnifyingGlassIcon className="h-6 w-6 text-[#505059]" />
+                  <input
+                    type="text"
+                    placeholder="Busque por card, assuntos ou responsáveis..."
+                    className="border-0 w-full outline-none placeholder:text-[#7c7c8a] placeholder:text-lg"
+                  />
+                </div>
+              </section>
+
+              <section className="flex gap-[4.8rem] pt-4">
+                <div id="todo" className="flex-1 p-[2.4rem]">
+                  <h2 className="px-[2.4rem] text-[2rem] font-bold text-[#403937]">
+                    A fazer
+                  </h2>
+
+                  <div id="cards" className="flex flex-col gap-8">
+                    <CardKanban
+                      title="#BoraCodar"
+                      text="Novo desafio do #boracodar"
+                      tag1="rocketseat"
+                      tag2="desafio"
+                    />
+                    <CardKanban
+                      title="#BoraCodar"
+                      text="Novo desafio do #boracodar"
+                      tag1="rocketseat"
+                      tag2="desafio"
+                    />
+                  </div>
+                </div>
+                <div id="doing" className="flex-1 p-[2.4rem]">
+                  <h2 className="px-[2.4rem] text-[2rem] font-bold text-[#403937]">
+                    Fazendo
+                  </h2>
+                  <CardKanban
+                    title="#BoraCodar"
+                    text="Novo desafio do #boracodar"
+                    tag1="rocketseat"
+                    tag2="desafio"
+                  />
+                </div>
+                <div id="done" className="flex-1 p-[2.4rem]">
+                  <h2 className="px-[2.4rem] text-[2rem] font-bold text-[#403937]">
+                    Feito
+                  </h2>
+                </div>
               </section>
             </div>
           </div>

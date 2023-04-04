@@ -43,7 +43,7 @@ export default function LoginPage() {
 
             <div className="mt-24 md:mt-10 sm:mt-10 max-sm:mt-6">
               <div className="max-w-xl w-3/4 max-sm:w-full ">
-                <h1 className="text-5xl font-bold text-gray-800 max-sm:text-3xl">
+                <h1 className="text-4xl font-bold text-gray-800 ">
                   Acesse a plataforma
                 </h1>
                 <p className="text-gray-600 text-lg mt-4 sm:text-md max-sm:text-base">
@@ -63,7 +63,7 @@ export default function LoginPage() {
                   <input
                     id="email"
                     type="email"
-                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff] max-sm:py-2"
+                    className="w-full py-3 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff] max-sm:py-2"
                     required
                   />
                 </div>
@@ -87,7 +87,7 @@ export default function LoginPage() {
                   <input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff] max-sm:py-2"
+                    className="w-full py-3 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff] max-sm:py-2"
                     required
                   />
                   {showPassword ? (
@@ -109,7 +109,7 @@ export default function LoginPage() {
 
                 <button
                   type="submit"
-                  className="w-full my-12 bg-[#7c3aed] flex justify-center items-center py-6 px-10 rounded-xl text-white text-lg font-bold active:outline-2 active:outline-[#7c3aed] focus:outline-2 focus:outline-[#9f67ff] hover:bg-[#9f67ff] max-sm:py-2 max-sm:my-8"
+                  className="w-full my-12 bg-[#7c3aed] flex justify-center items-center py-4 px-10 rounded-xl text-white text-lg font-bold active:outline-2 active:outline-[#7c3aed] focus:outline-2 focus:outline-[#9f67ff] hover:bg-[#9f67ff] max-sm:py-2 max-sm:my-8"
                 >
                   Entrar
                 </button>

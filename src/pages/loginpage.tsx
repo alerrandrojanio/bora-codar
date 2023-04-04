@@ -31,22 +31,22 @@ export default function LoginPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${titillium.variable} font-titillium`}>
+      <main className={`${titillium.variable} font-titillium `}>
         <Back />
         <div className="h-screen flex">
-          <div className="w-1/2 py-16 xl:px-48 lg:px-10  max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8 ">
+          <div className="w-1/2 py-12  max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8 xl:px-24">
             <Image
               src={Logo}
               alt="Logo"
               className="w-64 h-20 max-sm:mt-10 md:mt-10 sm:mt-14"
             />
 
-            <div className="mt-24 max-sm:mt-8 md:mt-10 sm:mt-10">
+            <div className="mt-24 md:mt-10 sm:mt-10 max-sm:mt-6">
               <div className="max-w-xl w-3/4 max-sm:w-full ">
-                <h1 className="text-5xl font-bold text-gray-800 sm:text-4xl">
+                <h1 className="text-5xl font-bold text-gray-800 max-sm:text-3xl">
                   Acesse a plataforma
                 </h1>
-                <p className="text-gray-600 text-lg mt-4 sm:text-md">
+                <p className="text-gray-600 text-lg mt-4 sm:text-md max-sm:text-base">
                   Faça login ou registre-se para começar a construir seus
                   projetos ainda hoje.
                 </p>
@@ -56,14 +56,14 @@ export default function LoginPage() {
                 <div className="flex flex-col space-y-2">
                   <label
                     htmlFor="email"
-                    className="font-semibold text-[#1E293B] text-lg"
+                    className="font-semibold text-[#1E293B] text-lg max-sm:text-base"
                   >
                     E-mail
                   </label>
                   <input
                     id="email"
                     type="email"
-                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff]"
+                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff] max-sm:py-2"
                     required
                   />
                 </div>
@@ -72,13 +72,13 @@ export default function LoginPage() {
                   <div className="flex justify-between">
                     <label
                       htmlFor="password"
-                      className="font-semibold text-[#1E293B] text-lg"
+                      className="font-semibold text-[#1E293B] text-lg max-sm:text-base"
                     >
                       Senha
                     </label>
                     <a
                       href="#"
-                      className="text-[#7C3AED] font-semibold text-lg rounded focus:outline-none focus:ring-2 focus:ring-[#9f67ff] hover:text-[#9f67ff]"
+                      className="text-[#7C3AED] font-semibold text-lg rounded focus:outline-none focus:ring-2 focus:ring-[#9f67ff] hover:text-[#9f67ff] max-sm:text-base"
                     >
                       Esqueceu a senha?
                     </a>
@@ -87,20 +87,20 @@ export default function LoginPage() {
                   <input
                     id="password"
                     type={showPassword ? "text" : "password"}
-                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff]"
+                    className="w-full py-4 px-4 bg-white border border-[#e2e8f0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9f67ff] max-sm:py-2"
                     required
                   />
                   {showPassword ? (
                     <Image
                       src={EyeOff}
-                      className="h-8 w-8 absolute top-[44%] right-[3%] cursor-pointer"
+                      className="h-8 w-8 absolute top-[44%] right-[3%] cursor-pointer max-sm:h-6 max-sm:w-6"
                       alt="Eye"
                       onClick={togglePassword}
                     />
                   ) : (
                     <Image
                       src={Eye}
-                      className="h-8 w-8 absolute top-[44%] right-[3%] cursor-pointer"
+                      className="h-8 w-8 absolute top-[44%] right-[3%] cursor-pointer max-sm:h-6 max-sm:w-6"
                       alt="Eye"
                       onClick={togglePassword}
                     />
@@ -109,12 +109,12 @@ export default function LoginPage() {
 
                 <button
                   type="submit"
-                  className="w-full my-12 bg-[#7c3aed] flex justify-center items-center py-6 px-10 rounded-xl text-white text-lg font-bold active:outline-2 active:outline-[#7c3aed] focus:outline-2 focus:outline-[#9f67ff] hover:bg-[#9f67ff]"
+                  className="w-full my-12 bg-[#7c3aed] flex justify-center items-center py-6 px-10 rounded-xl text-white text-lg font-bold active:outline-2 active:outline-[#7c3aed] focus:outline-2 focus:outline-[#9f67ff] hover:bg-[#9f67ff] max-sm:py-2 max-sm:my-8"
                 >
                   Entrar
                 </button>
 
-                <div className="text-gray-600 text-lg">
+                <div className="text-gray-600 text-lg max-sm:text-base ">
                   Ainda não tem conta?{" "}
                   <a
                     href="#"

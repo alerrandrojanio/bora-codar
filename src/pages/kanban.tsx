@@ -74,7 +74,7 @@ export default function Kanban() {
                         "flex items-center gap-6 text-[#cab3ff] font-medium rounded hover:text-white [&.active]:text-white focus:outline-none focus:ring-2 focus:ring-[#9f67ff]",
                         {
                           active: index === 0,
-                        }
+                        },
                       )}
                     >
                       {item.icon}
@@ -88,11 +88,11 @@ export default function Kanban() {
           <div id="main" className="pt-3">
             <div
               id="inner"
-              className="h-full bg-[#fbfaff] rounded-l-[32px] py-[3rem] px-[3.2rem]"
+              className="h-full bg-[#fbfaff] rounded-l-[32px] py-6 px-[3.2rem]"
             >
               <section
                 id="title-avatar"
-                className="flex justify-between items-center flex-wrap-reverse py-[1.1rem] px-10"
+                className="flex justify-between items-center flex-wrap-reverse py-4 px-10"
               >
                 <h1 className="flex items-center gap-5 text-4xl font-bold text-[#403937]">
                   Meu Kanban
@@ -101,16 +101,16 @@ export default function Kanban() {
                 <Image
                   src={"https://github.com/alerrandrojanio.png"}
                   className="rounded-full"
-                  width={80}
-                  height={80}
+                  width={60}
+                  height={60}
                   alt="Avatar"
                 />
               </section>
 
-              <section id="filter" className="mt-12 px-10 flex gap-5">
-                <button className="flex items-center gap-3 py-4 px-12 bg-[#7c3aed] text-white rounded-lg focus-within:outline-none hover:bg-[#9f67ff] focus:ring-2 focus:ring-[#9f67ff]">
+              <section id="filter" className="mt-6 px-10 flex gap-5">
+                <button className="flex items-center gap-3 py-3 px-10 bg-[#7c3aed] text-white rounded-lg focus-within:outline-none hover:bg-[#9f67ff] focus:ring-2 focus:ring-[#9f67ff]">
                   <AdjustmentsHorizontalIcon className="h-6 w-6" />
-                  <span className="text-lg">Filtrar</span>
+                  <span className="text-base">Filtrar</span>
                 </button>
 
                 <div
@@ -122,14 +122,14 @@ export default function Kanban() {
                   <input
                     type="text"
                     placeholder="Busque por card, assuntos ou responsáveis..."
-                    className="border-0 w-full outline-none placeholder:text-[#7c7c8a] placeholder:text-lg"
+                    className="border-0 w-full outline-none placeholder:text-[#7c7c8a] placeholder:text-base"
                   />
                 </div>
               </section>
 
-              <section className="flex gap-[4.8rem] pt-4">
-                <div id="todo" className="flex-1 p-[2.4rem]">
-                  <h2 className="px-[2.4rem] text-[2rem] font-bold text-[#403937]">
+              <section className="flex gap-10 pt-4 flex-wrap">
+                <div id="todo" className="flex-1 p-2 ">
+                  <h2 className="px-8 py-2 text-2xl font-bold text-[#403937]">
                     A fazer
                   </h2>
 
@@ -137,32 +137,34 @@ export default function Kanban() {
                     <CardKanban
                       title="#BoraCodar"
                       text="Novo desafio do #boracodar"
-                      tag1="rocketseat"
-                      tag2="desafio"
+                      tags={["desafio", "rocketseat"]}
                     />
                     <CardKanban
                       title="#BoraCodar"
                       text="Novo desafio do #boracodar"
-                      tag1="rocketseat"
-                      tag2="desafio"
+                      tags={["desafio", "rocketseat"]}
                     />
                   </div>
                 </div>
-                <div id="doing" className="flex-1 p-[2.4rem]">
-                  <h2 className="px-[2.4rem] text-[2rem] font-bold text-[#403937]">
+                <div id="doing" className="flex-1 p-2 ">
+                  <h2 className="px-8 py-2 text-2xl font-bold text-[#403937]">
                     Fazendo
                   </h2>
                   <CardKanban
                     title="#BoraCodar"
                     text="Novo desafio do #boracodar"
-                    tag1="rocketseat"
-                    tag2="desafio"
+                    tags={["rocketseat"]}
                   />
                 </div>
-                <div id="done" className="flex-1 p-[2.4rem]">
-                  <h2 className="px-[2.4rem] text-[2rem] font-bold text-[#403937]">
+                <div id="done" className="flex-1 p-2 ">
+                  <h2 className="px-8 py-2 text-2xl font-bold text-[#403937]">
                     Feito
                   </h2>
+                  <CardKanban
+                    title="#BoraCodar"
+                    text="Novo desafio do #boracodar"
+                    tags={["desafio", "rocketseat"]}
+                  />
                 </div>
               </section>
             </div>

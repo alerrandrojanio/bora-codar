@@ -2,11 +2,12 @@ import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 
-import { IndexButton } from "../components/IndexButton"
+import { IndexCard } from "../components/IndexCard"
 
 import MenuLogin from "../../public/img/menu-loginpage.png"
 import MenuClimate from "../../public/img/menu-climate.png"
 import MenuKanban from "../../public/img/menu-kanban.png"
+import MenuUpload from "../../public/img/menu-upload.png"
 
 import { Titillium_Web } from "next/font/google"
 
@@ -25,39 +26,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main
-        className={`${titillium.variable} font-titillium h-screen bg-[#bd9afa] flex justify-center items-center flex-wrap`}
+        className={`${titillium.variable} font-titillium h-screen  flex justify-center items-center flex-wrap`}
       >
-        <div className="flex justify-center items-center flex-col ">
-          <h1 className="text-3xl font-bold text-white">Desafios</h1>
+        <div className="flex justify-center items-center flex-col py-10">
+          <h1 className="text-3xl font-bold text-violet-500">Desafios</h1>
 
-          <div className="w-full flex items-center justify-center gap-4 flex-wrap py-8 p-4 bg-[#bd9afa]">
-            <div className="py-4 px-8 bg-purple-200 rounded-lg shadow-lg flex flex-col justify-center items-center gap-4">
-              <Image
-                src={MenuLogin}
-                alt=""
-                className="rounded-lg hover:scale-105 transition"
-                width={300}
-              />
-              <IndexButton href="/loginpage" text="Login page" />
-            </div>
-            <div className="py-4 px-8 bg-purple-200 rounded-lg shadow-lg flex flex-col justify-center items-center gap-4">
-              <Image
-                src={MenuClimate}
-                alt=""
-                width={300}
-                className="rounded-lg hover:scale-105 transition"
-              />
-              <IndexButton href="/climate" text="Climate" />
-            </div>
-            <div className="py-4 px-8 bg-purple-200 rounded-lg shadow-lg flex flex-col justify-center items-center gap-4">
-              <Image
-                src={MenuKanban}
-                alt=""
-                width={300}
-                className="rounded-lg hover:scale-105 transition"
-              />
-              <IndexButton href="/kanban" text="Kanban" />
-            </div>
+          <div className="w-full flex items-center justify-center gap-4 flex-wrap py-8 px-4 ">
+            <IndexCard text="Login page" image={MenuLogin} href="/loginpage" />
+            <IndexCard text="Climate" image={MenuClimate} href="/climate" />
+            <IndexCard text="Kanban" image={MenuKanban} href="/kanban" />
+            <IndexCard text="Upload files" image={MenuUpload} href="/upload" />
           </div>
         </div>
       </main>

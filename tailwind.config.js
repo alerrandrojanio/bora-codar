@@ -21,8 +21,20 @@ module.exports = {
         "bg-weather": "url('public/images/background.svg')",
         "bg-temp-now": "url('public/images/climate/bg-temp-now.jpg')",
       },
+      colors: {
+        upload: {
+          icon: {
+            bg: "#eee",
+            color: "#aaa",
+          },
+          progress: {
+            color: "black",
+            text: "#999",
+          },
+        },
+      },
       borderWidth: ["first"],
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss"), require("autoprefixer")],
 }

@@ -34,7 +34,7 @@ export default function LoginPage() {
       <main className={`${titillium.variable} font-titillium `}>
         <Back />
         <div className="h-screen flex">
-          <div className="w-1/2 py-12  max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8 xl:px-24">
+          <div className="w-1/2 py-12  max-sm:px-8 max-sm:w-full sm:px-8 sm:py-8 xl:px-24 2xl:px-40 ">
             <Image
               src={Logo}
               alt="Logo"

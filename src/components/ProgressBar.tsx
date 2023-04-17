@@ -12,14 +12,16 @@ export function ProgressBar({ progress }: ProgressBarProps) {
           role="progressbar"
           aria-valuenow={progress}
           className={clsx("flex-1 h-2 rounded-full  transition-all ", {
-            "bg-white": progress === 0,
-            "bg-[#7a5fec]": progress > 0 && progress < 100,
+            "bg-white": progress < 0 && progress > 100,
+            "bg-[#7a5fec]": progress >= 0 && progress < 100,
             "bg-[#73b172]": progress === 100,
           })}
           style={{ width: `${progress}%` }}
         />
       </div>
-      <span className="">{progress > 0 ? progress + "%" : "Erro"}</span>
+      <span className="">
+        {progress >= 0 && progress <= 100 ? progress + "%" : "Erro"}
+      </span>
     </div>
   )
 }

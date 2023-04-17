@@ -47,7 +47,7 @@ export default function Upload() {
             className={clsx(
               "px-14 py-10 bg-[#fbfaff] border border-dashed border-[#c1b2fa] rounded-xl flex flex-col items-center justify-center gap-2 relative",
               {
-                "bg-[#d5ccfc]": isDropArea === true,
+                "bg-violet-200": isDropArea === true,
               },
             )}
           >

@@ -17,15 +17,9 @@ const inter = Inter({
 
 export default function Upload() {
   const [isDropArea, setIsDropArea] = useState(false)
-  const [value, setValue] = useState(46)
 
   useEffect(() => {
     const dropArea = document.querySelector("#drag")
-    const progress = document.querySelector("#progress") as HTMLProgressElement
-
-    progress?.addEventListener("progress", () => {
-      setValue(progress.value)
-    })
 
     dropArea?.addEventListener("dragover", () => {
       setIsDropArea(true)
@@ -35,8 +29,6 @@ export default function Upload() {
       setIsDropArea(false)
     })
   }, [])
-
-  console.log(value)
 
   return (
     <>

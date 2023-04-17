@@ -30,7 +30,7 @@ export function UploadFile({
         <div
           id="icon"
           className={clsx(
-            " rounded py-3 px-3 flex items-center justify-center",
+            "rounded py-3 px-3 flex items-center justify-center",
             {
               "bg-[#f2d9d9]": progress === 0,
               "bg-[#e9e3f8]": progress > 0 && progress < 100,
@@ -39,7 +39,7 @@ export function UploadFile({
           )}
         >
           <DocumentIcon
-            className={clsx("w-8 h-8 text-upload-icon-color", {
+            className={clsx("w-8 h-8", {
               "text-[#e36363]": progress === 0,
               "text-[#ac96e4]": progress > 0 && progress < 100,
               "text-[#73b172]": progress === 100,

@@ -144,6 +144,7 @@ export default function CreditCard() {
                 </label>
                 <InputMask
                   mask="9999 9999 9999 9999"
+                  maskChar={null}
                   max={19}
                   placeholder="**** **** **** ****"
                   className="w-full mt-1 px-2 py-3 border border-[#374151] bg-[#111827] rounded text-[#f3f4f6] focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-transparent"

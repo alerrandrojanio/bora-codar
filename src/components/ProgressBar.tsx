@@ -12,7 +12,7 @@ export function ProgressBar({ progress }: ProgressBarProps) {
           role="progressbar"
           aria-valuenow={progress}
           className={clsx("flex-1 h-2 rounded-full  transition-all ", {
-            "bg-white": progress < 0 && progress > 100,
+            "bg-transparent": progress < 0 || progress > 100,
             "bg-[#7a5fec]": progress >= 0 && progress < 100,
             "bg-[#73b172]": progress === 100,
           })}

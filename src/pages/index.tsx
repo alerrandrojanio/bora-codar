@@ -36,6 +36,11 @@ export default function Home() {
             <IndexCard text="Climate" image={MenuClimate} href="/climate" />
             <IndexCard text="Kanban" image={MenuKanban} href="/kanban" />
             <IndexCard text="Upload files" image={MenuUpload} href="/upload" />
+            <IndexCard
+              text="Credit card"
+              image={MenuUpload}
+              href="/creditcard"
+            />
           </div>
         </div>
       </main>

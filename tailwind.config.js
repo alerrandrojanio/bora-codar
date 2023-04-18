@@ -1,4 +1,22 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
+const plugin = require("tailwindcss/plugin")
+
+const utilities = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".my-rotate-y-180": {
+      transform: "rotateY(180deg)",
+    },
+    ".preserve-3d": {
+      transformStyle: "preserve-3d",
+    },
+    ".perspective": {
+      perspective: "1000px",
+    },
+    ".backface-hidden": {
+      backfaceVisibility: "hidden",
+    },
+  })
+})
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -36,5 +54,5 @@ module.exports = {
       borderWidth: ["first"],
     },
   },
-  plugins: [require("tailwindcss"), require("autoprefixer")],
+  plugins: [require("tailwindcss"), require("autoprefixer"), utilities],
 }

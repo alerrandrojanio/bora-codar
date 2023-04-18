@@ -5,7 +5,6 @@ import {
 } from "@heroicons/react/24/solid"
 import { ProgressBar } from "./ProgressBar"
 import clsx from "clsx"
-import { Back } from "./Back"
 
 interface UploadFileProps {
   name: string

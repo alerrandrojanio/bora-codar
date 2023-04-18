@@ -2,7 +2,10 @@ import { useState, useEffect } from "react"
 import Head from "next/head"
 import { Inter } from "next/font/google"
 
-import { useForm, SubmitHandler } from "react-hook-form"
+import InputMask from "react-input-mask"
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
+import { z } from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
 
 import CardLogo from "../../public/img/creditcard/logo-visa.png"
 import Contactless from "../../public/img/creditcard/contactless.png"
@@ -15,18 +18,48 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-interface Inputs {
-  number: string
-  name: string
-  validy: string
-  cvv: string
-}
+const createCardFormSchema = z.object({
+  number: z
+    .string()
+    .nonempty("O número do cartão é obrigatório")
+    .min(19, "O número deve conter 16 dígitos"),
+  name: z
+    .string()
+    .nonempty("O nome é obrigatório")
+    .transform((name) => {
+      return name
+        .trim()
+        .split(" ")
+        .map((word) => {
+          return word[0].toLocaleUpperCase().concat(word.substring(1))
+        })
+        .join(" ")
+    }),
+  vality: z.string().nonempty("A validade é obrigatória"),
+  cvv: z
+    .string()
+    .nonempty("O CVV é obrigatório")
+    .min(3, "O CVV deve conter 3 dígitos")
+    .max(3, "O CVV deve conter 3 dígitos"),
+})
+
+type CreateCardFormData = z.infer<typeof createCardFormSchema>
 
 export default function CreditCard() {
-  const [number, setNumber] = useState("")
-  const [name, setName] = useState("")
-  const [vality, setVality] = useState("")
-  const [cvv, setCvv] = useState("")
+  const [data, setData] = useState<CreateCardFormData>()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm<CreateCardFormData>({
+    resolver: zodResolver(createCardFormSchema),
+  })
+
+  function createCard(data: CreateCardFormData) {
+    setData(data)
+  }
 
   return (
     <>
@@ -38,11 +71,11 @@ export default function CreditCard() {
       </Head>
       <Back />
       <main
-        className={`${inter.variable} font-inter h-screen flex justify-center items-center leading-[130%] bg-[#1f2937]`}
+        className={`${inter.variable} font-inter h-screen flex justify-center items-center leading-[130%] bg-[#1f2937] `}
       >
         <div
           id="app"
-          className="w-full flex items-center justify-center flex-col gap-16 px-8"
+          className="w-full flex items-center justify-center flex-col gap-12 p-8"
         >
           <section
             id="creditcard"
@@ -66,16 +99,16 @@ export default function CreditCard() {
 
                   <div className="text-white flex items-center justify-center">
                     <span className="text-white/80 text-xl tracking-widest">
-                      {number ? number : "**** **** **** ****"}
+                      {data?.number ? data.number : "**** **** **** ****"}
                     </span>
                   </div>
 
                   <div className="text-white flex items-center justify-between">
                     <span className="text-white/80 tracking-wide">
-                      {name ? name : "John Doe"}
+                      {data?.name ? data.name : "John Doe"}
                     </span>
                     <span className="text-white/80 tracking-wide">
-                      {vality ? vality : "mm / aa"}
+                      {data?.vality ? data.vality : "mm / aa"}
                     </span>
                   </div>
                 </div>
@@ -89,7 +122,9 @@ export default function CreditCard() {
                   <div className="bg-zinc-900 h-16"></div>
                   <div className="mb-8 flex justify-center items-center gap-3 px-12">
                     <div className="bg-zinc-200 h-10 flex-1 rounded p-2 text-right">
-                      <span className="text-zinc-500">{cvv ? cvv : "***"}</span>
+                      <span className="text-zinc-500">
+                        {data?.cvv ? data.cvv : "***"}
+                      </span>
                     </div>
                     <span className="text-white/80 tracking-wide">CVV</span>
                   </div>
@@ -98,21 +133,28 @@ export default function CreditCard() {
             </div>
           </section>
 
-          <section className="w-[28rem] h-[17rem]">
-            <form action="" className="flex flex-col gap-4">
+          <section className="w-[28rem]">
+            <form
+              onSubmit={handleSubmit(createCard)}
+              className="flex flex-col gap-4"
+            >
               <div className="input-wrapper">
                 <label htmlFor="number" className="text-white">
                   Número do cartão
                 </label>
-                <input
-                  id="number"
-                  type="text"
+                <InputMask
+                  mask="9999 9999 9999 9999"
                   max={19}
                   placeholder="**** **** **** ****"
                   className="w-full mt-1 px-2 py-3 border border-[#374151] bg-[#111827] rounded text-[#f3f4f6] focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-transparent"
-                  value={number}
-                  onChange={(e) => setNumber(e.target.value)}
+                  {...register("number")}
                 />
+
+                {errors.number && (
+                  <span className="flex text-xs text-red-500 p-1">
+                    {errors.number.message}
+                  </span>
+                )}
               </div>
 
               <div className="input-wrapper">
@@ -125,9 +167,13 @@ export default function CreditCard() {
                   maxLength={30}
                   placeholder="Nome como está no cartão"
                   className="w-full mt-1 px-2 py-3 border border-[#374151] bg-[#111827] rounded text-[#f3f4f6] focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-transparent"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  {...register("name")}
                 />
+                {errors.name && (
+                  <span className="flex text-xs text-red-500 p-1">
+                    {errors.name.message}
+                  </span>
+                )}
               </div>
 
               <div className="flex gap-4">
@@ -135,17 +181,22 @@ export default function CreditCard() {
                   <label htmlFor="validity" className="text-[#e5e7eb] ">
                     Validade
                   </label>
-                  <input
+                  <InputMask
+                    mask="99 / 99"
                     id="validity"
                     type="text"
                     placeholder="mm/aa"
                     className="w-full mt-1 px-2 py-3 border border-[#374151] bg-[#111827] rounded text-[#f3f4f6] focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-transparent"
-                    value={vality}
-                    onChange={(e) => setVality(e.target.value)}
+                    {...register("vality")}
                   />
+                  {errors.vality && (
+                    <span className="flex text-xs text-red-500 p-1">
+                      {errors.vality.message}
+                    </span>
+                  )}
                 </div>
                 <div>
-                  <label htmlFor="cvv" className="text-[#e5e7eb] ">
+                  <label htmlFor="cvv" className="text-[#e5e7eb]">
                     CVV
                   </label>
                   <input
@@ -154,11 +205,21 @@ export default function CreditCard() {
                     maxLength={3}
                     placeholder="***"
                     className="w-full mt-1 px-2 py-3 border border-[#374151] bg-[#111827] rounded text-[#f3f4f6] focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-transparent"
-                    value={cvv}
-                    onChange={(e) => setCvv(e.target.value)}
+                    {...register("cvv")}
                   />
+                  {errors.cvv && (
+                    <span className="flex text-xs text-red-500 p-1">
+                      {errors.cvv.message}
+                    </span>
+                  )}
                 </div>
               </div>
+              <button
+                type="submit"
+                className="w-full bg-violet-500 text-white py-3 mt-4 rounded hover:bg-violet-600"
+              >
+                Salvar
+              </button>
             </form>
           </section>
         </div>

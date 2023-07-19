@@ -1,9 +1,7 @@
 import { ReactNode } from "react";
 
 import Image from "next/image";
-import Link from "next/link";
 
-import Logo from "../../../public/kanban/logo.svg";
 import {
   ClipboardIcon,
   UsersIcon,
@@ -39,7 +37,7 @@ const menu: Array<Menu> = [
 export function Navbar() {
   return (
     <nav className="min-w-[11.5rem] px-12 pb-0 pt-12 max-md:min-w-[8rem]">
-      <Image src={Logo} alt="Logo" />
+      <Image src="/kanban/logo.svg" alt="Logo" width={60} height={60} />
 
       <ul className="mt-24 grid gap-14 ">
         {menu.map((item, index) => {

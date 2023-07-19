@@ -1,7 +1,3 @@
-import { ReactNode } from "react";
-
-import Image from "next/image";
-import Link from "next/link";
 import { Card } from "@/components/ia/Card";
 import { DarkModeSwitch } from "@/components/DarkModeSwitch";
 
@@ -10,10 +6,7 @@ import { LuWand2 } from "react-icons/lu";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { HiMiniCodeBracket, HiOutlineMusicalNote } from "react-icons/hi2";
 import { BsPlayCircle } from "react-icons/bs";
-
-export interface PageProps {
-  children: ReactNode;
-}
+import { Back } from "@/components/Back";
 
 const cards = [
   {
@@ -42,9 +35,10 @@ const cards = [
   },
 ];
 
-export default function Page({ children }: PageProps) {
+export default function Page() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#56CBB0] via-[#3A7DB5] to-[#284FB7] p-8 text-zinc-50">
+    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#56CBB0] via-[#3A7DB5] to-[#284FB7] p-8 text-zinc-50">
+      <Back />
       <div className="flex h-[720px] w-[1080px] flex-col items-center justify-center  rounded-3xl bg-[#16243A]/95 px-8">
         <header className="flex w-full flex-col items-center justify-center gap-4">
           <div className="rounded-lg bg-[#0F172A]/90 p-3 text-zinc-300">
@@ -78,6 +72,6 @@ export default function Page({ children }: PageProps) {
           />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

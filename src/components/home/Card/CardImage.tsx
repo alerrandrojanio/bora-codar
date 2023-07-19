@@ -6,7 +6,7 @@ export interface CardImageProps {
 }
 
 export function CardImage({ src, alt }: CardImageProps) {
-  return (
+  return src ? (
     <Image
       src={src}
       alt={alt}
@@ -14,5 +14,7 @@ export function CardImage({ src, alt }: CardImageProps) {
       height={100}
       className="aspect-video rounded-lg"
     />
+  ) : (
+    ""
   );
 }

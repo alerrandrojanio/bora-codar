@@ -1,24 +1,13 @@
-import Head from "next/head";
 import Image from "next/image";
-import { ReactNode, useState } from "react";
-import clsx from "clsx";
 
 import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 
-import { Inter } from "next/font/google";
 import { Back } from "@/components/Back";
-
 import { Card } from "@/components/kanban/Card";
 import { Navbar } from "@/components/kanban/Navbar";
-
-const inter = Inter({
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export default function Kanban() {
   return (
@@ -83,11 +72,13 @@ export default function Kanban() {
 
                 <div id="cards" className="flex flex-col gap-8"></div>
               </div>
+
               <div id="doing" className="flex-1 p-2 ">
                 <h2 className="px-8 py-2 text-2xl font-bold text-[#403937]">
                   Fazendo
                 </h2>
               </div>
+
               <div id="done" className="flex-1 p-2 ">
                 <h2 className="px-8 py-2 text-2xl font-bold text-[#403937]">
                   Feito

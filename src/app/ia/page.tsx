@@ -1,11 +1,11 @@
-import { Card } from "@/components/ia/Card";
-import { DarkModeSwitch } from "@/components/DarkModeSwitch";
-
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { LuWand2 } from "react-icons/lu";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { HiMiniCodeBracket, HiOutlineMusicalNote } from "react-icons/hi2";
 import { BsPlayCircle } from "react-icons/bs";
+
+import { DarkModeSwitch } from "@/components/DarkModeSwitch";
+import { Card } from "@/components/ia/Card";
 import { Back } from "@/components/Back";
 
 const cards = [

@@ -30,6 +30,12 @@ export default function Home() {
           <Card.Content title="Kanban" description="description" />
           <Card.Actions href="/kanban" />
         </Card.Root>
+
+        <Card.Root>
+          <Card.Image src="/img.jpg" alt="justice league" />
+          <Card.Content title="Credit Card" description="description" />
+          <Card.Actions href="/creditcard" />
+        </Card.Root>
       </main>
     </div>
   );

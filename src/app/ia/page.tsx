@@ -6,7 +6,7 @@ import { BsPlayCircle } from "react-icons/bs";
 
 import { DarkModeSwitch } from "@/components/DarkModeSwitch";
 import { Card } from "@/components/ia/Card";
-import { Back } from "@/components/Back";
+import { PageLink } from "@/components/PageLink";
 
 const cards = [
   {
@@ -38,7 +38,7 @@ const cards = [
 export default function Page() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#56CBB0] via-[#3A7DB5] to-[#284FB7] p-8 text-zinc-50">
-      <Back />
+      <PageLink href="/" />
       <div className="flex h-[720px] w-[1080px] flex-col items-center justify-center  rounded-3xl bg-[#16243A]/95 px-8">
         <header className="flex w-full flex-col items-center justify-center gap-4">
           <div className="rounded-lg bg-[#0F172A]/90 p-3 text-zinc-300">

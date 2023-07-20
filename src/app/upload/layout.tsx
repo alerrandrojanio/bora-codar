@@ -1,10 +1,10 @@
-import { Back } from "@/components/Back";
+import { PageLink } from "@/components/PageLink";
 import { Upload } from "@/components/upload";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Back />
+      <PageLink href="/" />
       <main className={` h-screen leading-[130%]`}>
         <div
           id="app"

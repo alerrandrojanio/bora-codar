@@ -1,9 +1,9 @@
-import { Back } from "@/components/Back";
+import { PageLink } from "@/components/PageLink";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Back />
+      <PageLink href="/" />
       <main
         className={` flex h-screen items-center justify-center bg-[#1f2937] leading-[130%] `}
       >

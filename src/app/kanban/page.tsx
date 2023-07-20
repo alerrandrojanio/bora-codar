@@ -5,14 +5,14 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
 
-import { Back } from "@/components/Back";
 import { Card } from "@/components/kanban/Card";
 import { Navbar } from "@/components/kanban/Navbar";
+import { PageLink } from "@/components/PageLink";
 
 export default function Kanban() {
   return (
     <main className={` bg-[#7C3AED]`}>
-      <Back />
+      <PageLink href="/" />
 
       <div id="app " className="grid h-screen grid-cols-[max-content_1fr]">
         <Navbar />
